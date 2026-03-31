@@ -1,0 +1,62 @@
+json
+[
+  {
+    "id": "neural-roto",
+    "title": "Neural Roto Assistant",
+    "slogan": "Automating the impossible",
+    "description": "A Python script integrated into Nuke that automates rotoscoping of complex hair using PyTorch models. It reduces manual labor by 60%.",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ", 
+    "heroImage": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000",
+    "tags": ["Python", "Nuke", "AI"],
+    "gallery": [
+      "https://via.placeholder.com/400x300/111/333?text=Node+Graph",
+      "https://via.placeholder.com/400x300/111/333?text=Before",
+      "https://via.placeholder.com/400x300/111/333?text=After",
+      "https://via.placeholder.com/400x300/111/333?text=Mask"
+    ],
+    "stats": {
+      "role": "Lead TD",
+      "software": "Nuke 13.2v4",
+      "timeSaved": "~40 hrs/shot",
+      "status": "Production Ready"
+    }
+  },
+  {
+    "id": "vex-fluid",
+    "title": "Custom VEX Fluid Solver",
+    "slogan": "Physics meets performance",
+    "description": "Optimized fluid simulation solver for Houdini. Reduces cache size by 40% without sacrificing visual fidelity.",
+    "videoUrl": "", 
+    "heroImage": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000",
+    "tags": ["Houdini", "VEX", "Simulation"],
+    "gallery": [
+      "https://via.placeholder.com/400x300/111/333?text=Fluid+Sim",
+      "https://via.placeholder.com/400x300/111/333?text=Cache+View"
+    ],
+    "stats": {
+      "role": "FX TD",
+      "software": "Houdini 19.5",
+      "timeSaved": "~30% Render Time",
+      "status": "Beta"
+    }
+  },
+  {
+    "id": "auto-lighting",
+    "title": "Auto-Lighting Pipeline",
+    "slogan": "Intelligent illumination",
+    "description": "Machine learning model that analyzes 3D scenes and suggests optimal HDRI lighting setups based on reference photos.",
+    "videoUrl": "", 
+    "heroImage": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000",
+    "tags": ["Machine Learning", "Lighting", "Pipeline"],
+    "gallery": [
+      "https://via.placeholder.com/400x300/111/333?text=Scene+Analysis",
+      "https://via.placeholder.com/400x300/111/333?text=HDRI+Match"
+    ],
+    "stats": {
+      "role": "AI Researcher",
+      "software": "Blender / Python",
+      "timeSaved": "~25% Lighting Time",
+      "status": "Experimental"
+    }
+  }
+]
