@@ -190,6 +190,36 @@
             color: var(--accent-cyan);
         }
 
+        /* Dynamic Content Styling */
+        .content-block {
+            margin-bottom: 2rem;
+        }
+        .content-text {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        .content-media {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .content-media img, .content-media iframe {
+            width: 100%;
+            display: block;
+            border-radius: 6px;
+        }
+        .media-caption {
+            font-family: var(--font-tech);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -261,10 +291,11 @@
                 <div class="main-text">
                     <div id="p-tags" class="meta-tags"></div>
 
-                    <h2 style="color: var(--accent-cyan); margin-bottom: 1rem;">Technical Overview</h2>
-                    <p id="p-full-desc" style="color: var(--text-muted); margin-bottom: 1.5rem;">...</p>
+                    <!-- Dynamic Content Container -->
+                    <div id="p-content-body"></div>
 
-                    <h2 style="color: var(--accent-cyan); margin-bottom: 1rem;">Gallery</h2>
+                    <!-- Optional: Keep the gallery grid if you want a separate section at the bottom -->
+                    <h2 style="color: var(--accent-cyan); margin-bottom: 1rem; margin-top: 3rem;">Gallery</h2>
                     <div id="p-gallery" class="gallery-grid"></div>
                 </div>
 
@@ -306,12 +337,13 @@
                         return;
                     }
 
+                    // Basic Info
                     document.title = `${project.title} | VFX Lab`;
                     document.getElementById('p-title').innerText = project.title;
                     document.getElementById('p-slogan').innerText = project.slogan;
                     document.getElementById('p-desc').innerText = project.description;
-                    document.getElementById('p-full-desc').innerText = project.description;
 
+                    // Hero Media
                     const mediaContainer = document.getElementById('p-media');
                     if (project.videoUrl && project.videoUrl !== "") {
                         mediaContainer.innerHTML = `
@@ -323,16 +355,70 @@
                         mediaContainer.innerHTML = `<img src="${project.heroImage}" alt="${project.title}">`;
                     }
 
+                    // Tags
                     const tagsContainer = document.getElementById('p-tags');
                     tagsContainer.innerHTML = project.tags.map(tag => 
                         `<span class="tag">${tag}</span>`
                     ).join('');
 
-                    const galleryContainer = document.getElementById('p-gallery');
-                    galleryContainer.innerHTML = project.gallery.map(img => 
-                        `<img src="${img}" class="gallery-item" alt="Gallery Image">`
-                    ).join('');
+                    // --- NEW: Dynamic Content Rendering ---
+                    const contentBody = document.getElementById('p-content-body');
+                    contentBody.innerHTML = ''; // Clear loading
 
+                    if (project.content && Array.isArray(project.content)) {
+                        project.content.forEach(block => {
+                            const blockDiv = document.createElement('div');
+                            blockDiv.className = 'content-block';
+
+                            if (block.type === 'text') {
+                                blockDiv.innerHTML = `<p class="content-text">${block.text}</p>`;
+                            } 
+                            else if (block.type === 'image') {
+                                let captionHtml = block.caption ? `<div class="media-caption">${block.caption}</div>` : '';
+                                blockDiv.innerHTML = `
+                                    <div class="content-media">
+                                        <img src="${block.src}" alt="Project Detail">
+                                    </div>
+                                    ${captionHtml}
+                                `;
+                            } 
+                            else if (block.type === 'video') {
+                                blockDiv.innerHTML = `
+                                    <div class="content-media">
+                                        <div class="video-wrapper">
+                                            <iframe src="${block.url}?controls=0&showinfo=0" title="Project Video" frameborder="0" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                `;
+                            }
+                            else if (block.type === 'gif') {
+                                let captionHtml = block.caption ? `<div class="media-caption">${block.caption}</div>` : '';
+                                blockDiv.innerHTML = `
+                                    <div class="content-media">
+                                        <img src="${block.src}" alt="Animated GIF">
+                                    </div>
+                                    ${captionHtml}
+                                `;
+                            }
+
+                            contentBody.appendChild(blockDiv);
+                        });
+                    } else {
+                        // Fallback if no content array exists
+                        contentBody.innerHTML = `<p class="content-text">${project.description}</p>`;
+                    }
+
+                    // Gallery (Optional, separate from main content)
+                    const galleryContainer = document.getElementById('p-gallery');
+                    if (project.gallery && Array.isArray(project.gallery)) {
+                        galleryContainer.innerHTML = project.gallery.map(img => 
+                            `<img src="${img}" class="gallery-item" alt="Gallery Image">`
+                        ).join('');
+                    } else {
+                        galleryContainer.style.display = 'none'; // Hide if empty
+                    }
+
+                    // Stats
                     const statsContainer = document.getElementById('p-stats');
                     const stats = project.stats;
                     statsContainer.innerHTML = `
