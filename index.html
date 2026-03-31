@@ -293,9 +293,9 @@
         <div class="container">
             <div class="hero-content">
                 <!-- Dynamic Content -->
-                <h1 class="tech-font" id="site-title">VFX & Computational Intelligence</h1>
-                <span class="slogan" id="site-slogan">We don't just simulate — we engineer perception</span>
-                <p style="color: var(--text-muted); margin-bottom: 2rem;" id="site-desc">Bridging Creative VFX with Custom Tooling & AI Solutions.</p>
+                <h1 class="tech-font" id="site-title">Loading...</h1>
+                <span class="slogan" id="site-slogan">Loading System...</span>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;" id="site-desc">Initializing...</p>
                 <div style="margin-top: 2rem;">
                     <a href="#reel" class="btn">Watch Showreel</a>
                     <a href="#tech" class="btn" style="margin-left: 10px; color: var(--text-muted); border-color: #333;">View Tech Specs</a>
@@ -361,8 +361,8 @@
                 </iframe>
             </div>
             <div style="padding: 1.5rem;">
-                <h3 id="reel-title" style="margin-bottom: 0.5rem;">Team Showreel 2024</h3>
-                <p id="reel-caption" style="color: var(--text-muted); font-size: 0.9rem;">A compilation of our latest work in feature films and high-end TVC.</p>
+                <h3 id="reel-title" style="margin-bottom: 0.5rem;">Loading Reel...</h3>
+                <p id="reel-caption" style="color: var(--text-muted); font-size: 0.9rem;">Initializing media stream...</p>
             </div>
         </div>
     </section>
@@ -404,149 +404,95 @@
         </div>
     </footer>
 
+    <!-- LOGIC SCRIPT -->
     <script>
-        // 1. LOAD DATA FROM JSON
-        const siteData = [
-            {
-                "id": "neural-roto",
-                "title": "Neural Roto Assistant",
-                "slogan": "Automating the impossible",
-                "description": "A Python script integrated into Nuke that automates rotoscoping of complex hair using PyTorch models.",
-                "videoUrl": "", 
-                "heroImage": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000",
-                "tags": ["Python", "Nuke", "AI"],
-                "stats": {
-                    "role": "Lead TD",
-                    "software": "Nuke 13.2v4",
-                    "timeSaved": "~40 hrs/shot",
-                    "status": "Production Ready"
-                },
-                "content": [
-                    { "type": "text", "text": "The Neural Roto Assistant was developed to solve the bottleneck of manual rotoscoping in high-volume VFX shots. By leveraging a custom-trained PyTorch model, the tool can predict hair edges with 95% accuracy." },
-                    { "type": "image", "src": "https://via.placeholder.com/800x400/111/333?text=Node+Graph+Overview", "caption": "The custom node graph implementation in Nuke." },
-                    { "type": "text", "text": "The pipeline integrates directly into the Nuke interface via a custom Python shelf tool. It utilizes OpenCV for pre-processing and passes masks directly to the node graph, allowing artists to refine the results with minimal effort." },
-                    { "type": "video", "url": "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-                    { "type": "text", "text": "Performance benchmarks show a 60% reduction in manual labor time per shot. The model was trained on over 5,000 frames of complex hair data." }
-                ]
+        /**
+         * Main Application Logic
+         * Handles fetching data from main.json and rendering the DOM
+         */
+        const App = {
+            config: null,
+
+            async init() {
+                try {
+                    await this.fetchData();
+                    this.render();
+                } catch (error) {
+                    console.error("Critical Error loading main.json:", error);
+                    document.getElementById('site-title').textContent = "System Failure";
+                    document.getElementById('site-desc').textContent = "Could not load configuration data.";
+                }
             },
-            {
-                "id": "vex-fluid",
-                "title": "Custom VEX Fluid Solver",
-                "slogan": "Physics meets performance",
-                "description": "Optimized fluid simulation solver for Houdini. Reduces cache size by 40% without sacrificing visual fidelity.",
-                "videoUrl": "", 
-                "heroImage": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000",
-                "tags": ["Houdini", "VEX", "Simulation"],
-                "stats": {
-                    "role": "FX TD",
-                    "software": "Houdini 19.5",
-                    "timeSaved": "~30% Render Time",
-                    "status": "Beta"
-                },
-                "content": [
-                    { "type": "text", "text": "Standard fluid solvers often struggle with high-resolution simulations due to memory constraints. This custom VEX solver implements a sparse grid optimization technique." },
-                    { "type": "image", "src": "https://via.placeholder.com/800x400/111/333?text=Fluid+Simulation+Result", "caption": "High-res fluid simulation result." },
-                    { "type": "text", "text": "By reducing the cache size by 40%, we were able to simulate scenes that previously crashed the system. The visual fidelity remains identical to the standard solver." },
-                    { "type": "gif", "src": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Z5eXZ5eXZ5eXZ5eXZ5eXZ5eXZ5eXZ5eXZ5eXZ5eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LfpjDCLfXlCg/giphy.gif" }
-                ]
+
+            async fetchData() {
+                // Fetches main.json from the same directory
+                const response = await fetch('main.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                const data = await response.json();
+                
+                // Extract the siteConfig object
+                this.config = data.find(item => item.id === 'siteConfig');
+                
+                if (!this.config) {
+                    throw new Error("siteConfig not found in JSON data");
+                }
             },
-            {
-                "id": "siteConfig",
-                "title": "VFX & Computational Intelligence",
-                "slogan": "We don't just simulate — we engineer perception",
-                "description": "Bridging Creative VFX with Custom Tooling & AI Solutions.",
-                "showreel": {
-                    "embedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&showinfo=0",
-                    "title": "Team Showreel 2024",
-                    "caption": "A compilation of our latest work in feature films and high-end TVC."
-                },
-                "clients": [
-                    { "name": "Amazon", "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
-                    { "name": "Google", "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
-                    { "name": "PlayStation", "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/PlayStation_%28PS5%29.svg" },
-                    { "name": "Uber", "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Uber_logo_2018.svg" },
-                    { "name": "Spotify", "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" }
-                ],
-                "team": [
-                    {
-                        "name": "Alex Mercer",
-                        "role": "Lead VFX Artist",
-                        "bio": "8 Years Exp. Specialist in Compositing (Nuke) and Matte Painting.",
-                        "img": "https://via.placeholder.com/150/333/fff?text=AM"
-                    },
-                    {
-                        "name": "Sarah Chen",
-                        "role": "VFX Artist / Motion Graphics",
-                        "bio": "6 Years Exp. Expert in Maya, C4D, and 3D Typography.",
-                        "img": "https://via.placeholder.com/150/333/fff?text=SC"
-                    },
-                    {
-                        "name": "David 'The Boss' K.",
-                        "role": "Technical Director / AI Lead",
-                        "bio": "25+ Years Exp. Physics Modeling, Pipeline Arch, Python & AI.",
-                        "img": "https://via.placeholder.com/150/333/fff?text=DK"
-                    }
-                ]
-            }
-        ];
 
-        // 2. EXTRACT CONFIG DATA
-        const config = siteData.find(item => item.id === 'siteConfig');
+            render() {
+                this.renderTeam();
+                this.renderClients();
+                this.renderSiteContent();
+            },
 
-        // 3. RENDER FUNCTIONS
-
-        // A. Render Team
-        function loadTeam() {
-            const container = document.getElementById('team-container');
-            let html = '';
-            config.team.forEach(member => {
-                html += `
-                    <div class="panel team-card">
-                        <div class="avatar-placeholder">
-                            <img src="${member.img}" alt="${member.name}">
+            renderTeam() {
+                const container = document.getElementById('team-container');
+                let html = '';
+                this.config.team.forEach(member => {
+                    html += `
+                        <div class="panel team-card">
+                            <div class="avatar-placeholder">
+                                <img src="${member.img}" alt="${member.name}">
+                            </div>
+                            <h3 style="margin-bottom: 0.2rem;">${member.name}</h3>
+                            <div class="role">${member.role}</div>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">${member.bio}</p>
                         </div>
-                        <h3 style="margin-bottom: 0.2rem;">${member.name}</h3>
-                        <div class="role">${member.role}</div>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">${member.bio}</p>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
-        }
+                    `;
+                });
+                container.innerHTML = html;
+            },
 
-        // B. Render Clients
-        function loadClients() {
-            const container = document.getElementById('clients-container');
-            let html = '';
-            config.clients.forEach(client => {
-                html += `
-                    <img src="${client.logoUrl}" alt="${client.name}" class="client-logo">
-                `;
-            });
-            container.innerHTML = html;
-        }
+            renderClients() {
+                const container = document.getElementById('clients-container');
+                let html = '';
+                this.config.clients.forEach(client => {
+                    html += `
+                        <img src="${client.logoUrl}" alt="${client.name}" class="client-logo">
+                    `;
+                });
+                container.innerHTML = html;
+            },
 
-        // C. Render Hero & Showreel
-        function loadSiteContent() {
-            // Update Hero
-            document.getElementById('site-title').textContent = config.title;
-            document.getElementById('site-slogan').textContent = config.slogan;
-            document.getElementById('site-desc').textContent = config.description;
+            renderSiteContent() {
+                // Update Hero
+                document.getElementById('site-title').textContent = this.config.title;
+                document.getElementById('site-slogan').textContent = this.config.slogan;
+                document.getElementById('site-desc').textContent = this.config.description;
 
-            // Update Showreel
-            const reelContainer = document.getElementById('reel-iframe');
-            if(reelContainer) {
-                reelContainer.src = config.showreel.embedUrl;
+                // Update Showreel
+                const reelContainer = document.getElementById('reel-iframe');
+                if(reelContainer) {
+                    reelContainer.src = this.config.showreel.embedUrl;
+                }
+                document.getElementById('reel-title').textContent = this.config.showreel.title;
+                document.getElementById('reel-caption').textContent = this.config.showreel.caption;
             }
-            document.getElementById('reel-title').textContent = config.showreel.title;
-            document.getElementById('reel-caption').textContent = config.showreel.caption;
-        }
+        };
 
-        // 4. INITIALIZE
+        // Initialize App on Load
         window.onload = () => {
-            loadTeam();
-            loadClients();
-            loadSiteContent();
+            App.init();
         };
     </script>
 </body>
