@@ -1,77 +1,5 @@
 [
   {
-    "id": "neural-roto",
-    "title": "Neural Roto Assistant",
-    "slogan": "Automating the impossible",
-    "description": "A Python script integrated into Nuke that automates rotoscoping of complex hair using PyTorch models.",
-    "videoUrl": "", 
-    "heroImage": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000",
-    "tags": ["Python", "Nuke", "AI"],
-    "stats": {
-      "role": "Lead TD",
-      "software": "Nuke 13.2v4",
-      "timeSaved": "~40 hrs/shot",
-      "status": "Production Ready"
-    },
-    "content": [
-      {
-        "type": "text",
-        "text": "The Neural Roto Assistant was developed to solve the bottleneck of manual rotoscoping in high-volume VFX shots. By leveraging a custom-trained PyTorch model, the tool can predict hair edges with 95% accuracy."
-      },
-      {
-        "type": "image",
-        "src": "https://via.placeholder.com/800x400/111/333?text=Node+Graph+Overview",
-        "caption": "The custom node graph implementation in Nuke."
-      },
-      {
-        "type": "text",
-        "text": "The pipeline integrates directly into the Nuke interface via a custom Python shelf tool. It utilizes OpenCV for pre-processing and passes masks directly to the node graph, allowing artists to refine the results with minimal effort."
-      },
-      {
-        "type": "video",
-        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
-      },
-      {
-        "type": "text",
-        "text": "Performance benchmarks show a 60% reduction in manual labor time per shot. The model was trained on over 5,000 frames of complex hair data."
-      }
-    ]
-  },
-  {
-    "id": "vex-fluid",
-    "title": "Custom VEX Fluid Solver",
-    "slogan": "Physics meets performance",
-    "description": "Optimized fluid simulation solver for Houdini. Reduces cache size by 40% without sacrificing visual fidelity.",
-    "videoUrl": "", 
-    "heroImage": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000",
-    "tags": ["Houdini", "VEX", "Simulation"],
-    "stats": {
-      "role": "FX TD",
-      "software": "Houdini 19.5",
-      "timeSaved": "~30% Render Time",
-      "status": "Beta"
-    },
-    "content": [
-      {
-        "type": "text",
-        "text": "Standard fluid solvers often struggle with high-resolution simulations due to memory constraints. This custom VEX solver implements a sparse grid optimization technique."
-      },
-      {
-        "type": "image",
-        "src": "https://via.placeholder.com/800x400/111/333?text=Fluid+Simulation+Result",
-        "caption": "High-res fluid simulation result."
-      },
-      {
-        "type": "text",
-        "text": "By reducing the cache size by 40%, we were able to simulate scenes that previously crashed the system. The visual fidelity remains identical to the standard solver."
-      },
-      {
-        "type": "gif",
-        "src": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Z5eXZ5eXZ5eXZ5eXZ5eXZ5eXZ5eXZ5eXZ5eXZ5eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LfpjDCLfXlCg/giphy.gif" 
-      }
-    ]
-  },
-  {
     "id": "siteConfig",
     "title": "VFX & Computational Intelligence",
     "slogan": "We don't just simulate — we engineer perception",
@@ -90,21 +18,21 @@
     ],
     "team": [
       {
-        "name": "Alex the KiTTen",
+        "name": "Alex Mercer",
         "role": "Lead VFX Artist",
-        "bio": "have no idea how many Years Exp. Specialist in Compositing (Nuke) and Matte Painting.",
+        "bio": "812 Years Exp. Specialist in Compositing (Nuke) and Matte Painting.",
         "img": "https://via.placeholder.com/150/333/fff?text=AM"
       },
       {
-        "name": "Sarah Win Chun",
+        "name": "Sarah Chen",
         "role": "VFX Artist / Motion Graphics",
-        "bio": "Since birth Exp. Expert in Maya, C4D, and 3D Typography.",
+        "bio": "600 Years Exp. Expert in Maya, C4D, and 3D Typography.",
         "img": "https://via.placeholder.com/150/333/fff?text=SC"
       },
       {
         "name": "David 'The Boss' K.",
         "role": "Technical Director / AI Lead",
-        "bio": "25+ Years Exp. Physics Modeling, Pipeline Arch, Python & AI.",
+        "bio": "0.001 Years Exp. Physics Modeling, Pipeline Arch, Python & AI.",
         "img": "https://via.placeholder.com/150/333/fff?text=DK"
       }
     ]
