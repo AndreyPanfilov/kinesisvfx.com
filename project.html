@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | VFX & Computational Intelligence</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES (Consistent with Main Page) --- */
+        :root {
+            --bg-color: #121212;
+            --panel-bg: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-cyan: #00f3ff;
+            --accent-amber: #ffae00;
+            --shadow-light: rgba(255, 255, 255, 0.05);
+            --shadow-dark: rgba(0, 0, 0, 0.6);
+            --font-tech: 'Fira Code', monospace;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND --- */
+        .hero-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover; background-repeat: repeat-y; opacity: 0.15; filter: grayscale(100%);
+        }
+
+        /* --- UTILITIES --- */
+        .panel {
+            background: var(--panel-bg);
+            border-radius: 8px;
+            box-shadow: 
+                inset 2px 2px 5px var(--shadow-dark),
+                inset -2px -2px 5px var(--shadow-light),
+                5px 5px 15px var(--shadow-dark);
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-family: var(--font-tech);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--accent-cyan);
+            background: var(--panel-bg);
+            border-radius: 4px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            box-shadow: 
+                inset 2px 2px 5px var(--shadow-dark),
+                inset -2px -2px 5px var(--shadow-light);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+            text-shadow: 0 0 5px var(--accent-cyan);
+        }
+
+        .btn:active {
+            box-shadow: inset 3px 3px 7px var(--shadow-dark);
+            transform: translateY(1px);
+        }
+
+        h1, h2, h3, .tech-font { font-family: var(--font-tech); letter-spacing: -0.5px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-tech); font-weight: 700; font-size: 1.2rem; color: var(--text-main); }
+        .logo span { color: var(--accent-cyan); }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent-cyan); }
+
+        /* --- PROJECT PAGE SPECIFIC --- */
+        
+        /* Hero Section with Slogan Style */
+        .project-hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .project-hero h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 0.5rem; 
+            line-height: 1.1; 
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8); 
+        }
+        
+        /* Slogan Styling (Copied from Main Page) */
+        .slogan {
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+            font-family: var(--font-tech);
+            margin-bottom: 2rem;
+            display: block;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+
+        .hero-media-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-media-container img, .hero-media-container iframe {
+            width: 100%;
+            display: block;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .project-content {
+            padding: 4rem 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .meta-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        .tag {
+            font-size: 0.7rem;
+            font-family: var(--font-tech);
+            padding: 4px 8px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 3px;
+            color: var(--accent-cyan);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .gallery-item {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: opacity 0.3s;
+        }
+        .gallery-item:hover { opacity: 0.8; }
+
+        .sidebar-info {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        footer { text-align: center; padding: 3rem 0; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; color: var(--text-muted); }
+
+        @media (max-width: 768px) {
+            .project-hero h1 { font-size: 2.5rem; }
+            .content-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="hero-bg"></div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">VFX<span>_LAB</span></div>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="lab.html">Back to Lab</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="project-hero">
+        <div class="container">
+            <!-- EDIT: Project Title -->
+            <h1 class="tech-font">Neural Roto Assistant</h1>
+            
+            <!-- EDIT: Slogan (Consistent with Main Page) -->
+            <span class="slogan">We don't just simulate — we engineer perception</span>
+            
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                A Python script integrated into Nuke that automates rotoscoping of complex hair using PyTorch models.
+            </p>
+
+            <!-- EDIT: Media (Either Video or Image) -->
+            <div class="hero-media-container">
+                <!-- OPTION 1: VIDEO (Uncomment to use) -->
+                <!-- 
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&showinfo=0" title="Project Video" frameborder="0" allowfullscreen></iframe>
+                </div> 
+                -->
+                
+                <!-- OPTION 2: IMAGE (Currently Active) -->
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop" alt="Project Hero Image">
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENT SECTION -->
+    <section class="project-content">
+        <div class="container">
+            <div class="content-grid">
+                
+                <!-- Main Description -->
+                <div class="main-text">
+                    <div class="meta-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Nuke</span>
+                        <span class="tag">AI</span>
+                        <span class="tag">PyTorch</span>
+                    </div>
+
+                    <h2 style="color: var(--accent-cyan); margin-bottom: 1rem;">Technical Overview</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        The Neural Roto Assistant was developed to solve the bottleneck of manual rotoscoping in high-volume VFX shots. By leveraging a custom-trained PyTorch model, the tool can predict hair edges with 95% accuracy, reducing manual labor by approximately 60%.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        The pipeline integrates directly into the Nuke interface via a custom Python shelf tool. It utilizes OpenCV for pre-processing and passes masks directly to the node graph.
+                    </p>
+
+                    <h2 style="color: var(--accent-cyan); margin-bottom: 1rem;">Gallery</h2>
+                    <div class="gallery-grid">
+                        <img src="https://via.placeholder.com/400x300/111/333?text=Node+Graph" class="gallery-item" alt="Node Graph">
+                        <img src="https://via.placeholder.com/400x300/111/333?text=Before+Result" class="gallery-item" alt="Before">
+                        <img src="https://via.placeholder.com/400x300/111/333?text=After+Result" class="gallery-item" alt="After">
+                        <img src="https://via.placeholder.com/400x300/111/333?text=Mask+Overlay" class="gallery-item" alt="Mask">
+                    </div>
+                </div>
+
+                <!-- Sidebar Info -->
+                <div class="sidebar-info">
+                    <div class="panel">
+                        <h3 style="margin-bottom: 1rem;">Project Stats</h3>
+                        <ul style="list-style: none; color: var(--text-muted); line-height: 2;">
+                            <li><strong class="tech-font">Role:</strong> Lead TD</li>
+                            <li><strong class="tech-font">Software:</strong> Nuke 13.2v4</li>
+                            <li><strong class="tech-font">Time Saved:</strong> ~40 hrs/shot</li>
+                            <li><strong class="tech-font">Status:</strong> Production Ready</li>
+                        </ul>
+                        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 1.5rem 0;">
+                        <a href="lab.html" class="btn" style="width: 100%; text-align: center;">Back to Lab</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 VFX & TD Team. All Systems Nominal.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
