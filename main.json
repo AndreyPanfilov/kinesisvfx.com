@@ -18,23 +18,23 @@
     ],
     "team": [
       {
+        "name": "ANDREY PANFILOV",
+        "role": "HEAD OF VFX, AI ENGINEER",
+        "bio": "25+ years in FX + physics. Masters liquid sims & VEX tooling. Now pioneering AI integration — fine-tuning AI models, deploying on GPU clusters, building custom tools to accelerate production. Leads the team where art meets algorithm",
+        "img": "./assets/team/AP.jpg"
+      },
+      {
         "name": "RICHARD LIM",
-        "role": "VFX GENERALIST, TD",
-        "bio": "Passionate FX Artist with over a decade of experience in the animation industry throughout the world. Driven by a love for creating immersive visual worlds, Richard has honed his craft at renowned studios such as Framestore, The Mill and Illumination. Skilled in Houdini, Richard is dedicated to pushing the boundaries of special effects and bringing imaginative concepts to life.",
+        "role": "VFX LEAD, TD",
+        "bio": "A passionate FX Artist with over a decade of global experience, honed at top studios like Framestore, The Mill, and Illumination. Richard is a Houdini specialist dedicated to pushing the boundaries of simulation to bring immersive visual worlds to life.",
         "img": "./assets/team/RL.jpg"
       },
       {
         "name": "SOPHON SEANGKAEW",
-        "role": "LEAD VFX TD, AI RESERCHER",
-        "bio": "Highly driven and accomplished FX Artist with over a decade of experience in the industry. Sophon has worked with top-tier studios such as Weta, MPC, BluEr, and Synapse and honed a deep passion for creating breathtaking visual effects. Throughout his career, Sophon has also excelled in leading and supervising large teams, driving complex projects to success and excellence with creativity and precision.",
+        "role": "VFX GENERALIST, TD",
+        "bio": "An accomplished FX Artist with 10+ years of experience at industry giants including Weta, MPC, and BluEr. Sophon combines a deep passion for breathtaking visuals with proven leadership skills, driving complex projects to excellence with precision.",
         "img": "./assets/team/SS.jpg"
-      },
-      {
-        "name": "ANDREY PANFILOV",
-        "role": "Technical Director / AI INGINEERe",
-        "bio": "With over 25 years of experience bridging the gap between hard science and high-end VFX, Andrey leads the team with a unique fusion of Physics and Computer Science expertise. A specialist in photorealistic liquid simulations and advanced VEX coding, he builds proprietary tools that guarantee creative control and procedural efficiency. Currently spearheading the team's integration of AI into the VFX pipeline, Andrey focuses on fine-tuning generative models and developing custom AI tools to revolutionize production workflows. Combining the precision of a scientist with the artistic eye of a veteran freelancer, he transforms complex visions into technically robust realities",
-        "img": "./assets/team/AP.jpg"
-      }
+      }      
     ]
   }
 ]
