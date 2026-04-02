@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VFX & Computational Intelligence | Team Portfolio</title>
+    <title>KINESIS VFX | Team Portfolio</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 
     <style>
         /* --- VARIABLES --- */
@@ -23,6 +23,7 @@
             --shadow-dark: rgba(0, 0, 0, 0.6);
             --font-tech: 'Fira Code', monospace;
             --font-body: 'Inter', sans-serif;
+            --font-logo: 'Oswald', sans-serif; /* Added for the new logo */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -71,6 +72,7 @@
                 inset -2px -2px 5px var(--shadow-light);
             transition: all 0.2s ease;
             cursor: pointer;
+            text-align: center;
         }
 
         .btn:hover {
@@ -99,13 +101,27 @@
         }
 
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: var(--font-tech); font-weight: 700; font-size: 1.2rem; color: var(--text-main); }
+        
+        /* LOGO UPDATE */
+        .logo { 
+            font-family: var(--font-logo); 
+            font-weight: 700; 
+            font-size: 1.5rem; 
+            color: var(--text-main); 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
         .logo span { color: var(--accent-cyan); }
+
+        .nav-links { 
+            display: flex; 
+            align-items: center; 
+            gap: 20px;
+        }
 
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
-            margin-left: 20px;
             font-size: 0.9rem;
             transition: color 0.3s;
         }
@@ -209,7 +225,7 @@
 
         .tech-features { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 
-        /* --- CLIENT LOGO GRID (UPDATED) --- */
+        /* --- CLIENT LOGO GRID --- */
         .clients-section {
             padding: 4rem 0;
             background: rgba(30, 30, 30, 0.3);
@@ -229,14 +245,14 @@
 
         .clients-grid {
             display: flex;
-            justify-content: center; /* Centered for better look */
+            justify-content: center;
             flex-wrap: wrap;
             gap: 3rem;
             align-items: center;
         }
 
         .client-logo {
-            height: 40px; /* Fixed height for uniformity */
+            height: 40px;
             width: auto;
             object-fit: contain;
             opacity: 0.5;
@@ -262,11 +278,47 @@
 
         footer { text-align: center; padding: 3rem 0; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; color: var(--text-muted); }
 
+        /* --- MEDIA QUERIES (UPDATED FOR MOBILE VISIBILITY) --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .tech-features { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
             .clients-grid { gap: 2rem; }
+
+            /* MOBILE NAVIGATION OVERRIDES */
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 10px 0;
+            }
+
+            /* Logo is now visible */
+            .logo {
+                order: 1; /* Ensure logo is first */
+                font-size: 1.8rem;
+            }
+
+            /* Nav links container adjustment */
+            .nav-links {
+                order: 2;
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+
+            /* Hide text links (Team, R&D) on mobile to save space */
+            .nav-links a:not(.btn) {
+                display: none;
+            }
+
+            /* Make Buttons visible and full width */
+            .nav-links .btn {
+                display: block; /* Ensure they are visible */
+                width: 100%;
+                margin: 0;
+                padding: 12px;
+                font-size: 1rem;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -278,12 +330,15 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">VFX<span>_LAB</span></div>
+                <!-- Updated Logo -->
+                <div class="logo">KINESIS <span>VFX</span></div>
+                
                 <div class="nav-links">
                     <a href="#team">The Team</a>
                     <a href="#tech">R&D / AI</a>
-                    <a href="#reel">Showreel</a>
-                    <a href="#contact" class="btn" style="margin-left: 20px; padding: 8px 16px;">Contact</a>
+                    <!-- Buttons moved here for better mobile stacking -->
+                    <a href="#reel" class="btn">Watch Showreel</a>
+                    <a href="#contact" class="btn" style="color: var(--accent-amber); border-color: rgba(255, 174, 0, 0.3);">Contact Us</a>
                 </div>
             </nav>
         </div>
@@ -296,9 +351,10 @@
                 <h1 class="tech-font" id="site-title">Loading...</h1>
                 <span class="slogan" id="site-slogan">Loading System...</span>
                 <p style="color: var(--text-muted); margin-bottom: 2rem;" id="site-desc">Initializing...</p>
-                <div style="margin-top: 2rem;">
+                <!-- Buttons in Hero are hidden on mobile via CSS if needed, or kept for desktop -->
+                <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
                     <a href="#reel" class="btn">Watch Showreel</a>
-                    <a href="#tech" class="btn" style="margin-left: 10px; color: var(--text-muted); border-color: #333;">View Tech Specs</a>
+                    <a href="#tech" class="btn" style="color: var(--text-muted); border-color: #333;">View Tech Specs</a>
                 </div>
             </div>
         </div>
@@ -336,11 +392,11 @@
             <div class="tech-features">
                 <div class="panel">
                     <h3 style="color: var(--accent-cyan); margin-bottom: 1rem;">Custom Tooling</h3>
-                    <p style="color: var(--text-muted);">We don't just use software; we build it. Custom Houdini VEX scripts and Python plugins designed to reduce render times.</p>
+                    <p style="color: var(--text-muted);">We don't just use software, we build it. Custom Houdini VEX scripts and Python plugins designed to ensure procedural efficiency and total creative control over complex simulations.</p>
                 </div>
                 <div class="panel">
                     <h3 style="color: var(--accent-amber); margin-bottom: 1rem;">AI Integration</h3>
-                    <p style="color: var(--text-muted);">Leveraging Machine Learning for upscaling, neural rendering, and asset generation. We are pushing the boundary of what is possible.</p>
+                    <p style="color: var(--text-muted);">Integrating Machine Learning into the VFX workflow. From upscaling and neural rendering to asset generation and custom model deployment, we are bridging the gap between traditional simulation and AI.</p>
                 </div>
             </div>
 
@@ -400,7 +456,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 VFX & TD Team. All Systems Nominal.</p>
+            <p>&copy; 2026 KINESIS VFX. All Systems Nominal.</p>
         </div>
     </footer>
 
