@@ -18,22 +18,22 @@
     ],
     "team": [
       {
-        "name": "Alex Mercer",
-        "role": "Lead VFX Artist",
-        "bio": "812 Years Exp. Specialist in Compositing (Nuke) and Matte Painting.",
-        "img": "https://via.placeholder.com/150/333/fff?text=AM"
+        "name": "RICHARD LIM",
+        "role": "VFX GENERALIST, TD",
+        "bio": "Passionate FX Artist with over a decade of experience in the animation industry throughout the world. Driven by a love for creating immersive visual worlds, Richard has honed his craft at renowned studios such as Framestore, The Mill and Illumination. Skilled in Houdini, Richard is dedicated to pushing the boundaries of special effects and bringing imaginative concepts to life.",
+        "img": "./assets/team/RL.jpg"
       },
       {
-        "name": "Sarah Chen",
-        "role": "VFX Artist / Motion Graphics",
-        "bio": "600 Years Exp. Expert in Maya, C4D, and 3D Typography.",
-        "img": "https://via.placeholder.com/150/333/fff?text=SC"
+        "name": "SOPHON SEANGKAEW",
+        "role": "LEAD VFX TD, AI RESERCHER",
+        "bio": "Highly driven and accomplished FX Artist with over a decade of experience in the industry. Sophon has worked with top-tier studios such as Weta, MPC, BluEr, and Synapse and honed a deep passion for creating breathtaking visual effects. Throughout his career, Sophon has also excelled in leading and supervising large teams, driving complex projects to success and excellence with creativity and precision.",
+        "img": "./assets/team/SS.jpg"
       },
       {
-        "name": "David 'The Boss' K.",
-        "role": "Technical Director / AI Lead",
-        "bio": "0.001 Years Exp. Physics Modeling, Pipeline Arch, Python & AI.",
-        "img": "https://via.placeholder.com/150/333/fff?text=DK"
+        "name": "ANDREY PANFILOV",
+        "role": "Technical Director / AI INGINEERe",
+        "bio": "With over 25 years of experience bridging the gap between hard science and high-end VFX, Andrey leads the team with a unique fusion of Physics and Computer Science expertise. A specialist in photorealistic liquid simulations and advanced VEX coding, he builds proprietary tools that guarantee creative control and procedural efficiency. Currently spearheading the team's integration of AI into the VFX pipeline, Andrey focuses on fine-tuning generative models and developing custom AI tools to revolutionize production workflows. Combining the precision of a scientist with the artistic eye of a veteran freelancer, he transforms complex visions into technically robust realities",
+        "img": "./assets/team/AP.jpg"
       }
     ]
   }
