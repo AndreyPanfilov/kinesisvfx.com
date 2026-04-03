@@ -434,25 +434,33 @@
     </section>
 
     <section id="contact" class="container" style="padding: 4rem 0;">
-        <h2 class="section-title">Initialize Contact</h2>
-        <div class="panel contact-form">
-            <form>
-                <div class="input-group">
-                    <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">NAME</label>
-                    <input type="text" placeholder="John Doe">
-                </div>
-                <div class="input-group">
-                    <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">EMAIL</label>
-                    <input type="email" placeholder="john@studio.com">
-                </div>
-                <div class="input-group">
-                    <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">MESSAGE</label>
-                    <textarea rows="5" placeholder="Project details..."></textarea>
-                </div>
-                <button type="submit" class="btn" style="width: 100%;">Transmit Data</button>
-            </form>
-        </div>
-    </section>
+    <h2 class="section-title">Initialize Contact</h2>
+    <div class="panel contact-form">
+        <!-- CHANGE STARTS HERE -->
+        <form action="https://formsubmit.co/team@kinesisvfx.com" method="POST">
+            <!-- Add this hidden input to prevent spam -->
+            <input type="hidden" name="_captcha" value="false">
+            <!-- Add this to redirect them back to your site after sending -->
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
+            
+            <div class="input-group">
+                <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">NAME</label>
+                <!-- Add 'name' attribute so the email knows what is what -->
+                <input type="text" name="name" placeholder="John Doe">
+            </div>
+            <div class="input-group">
+                <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">EMAIL</label>
+                <input type="email" name="email" placeholder="john@studio.com">
+            </div>
+            <div class="input-group">
+                <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">MESSAGE</label>
+                <textarea name="message" rows="5" placeholder="Project details..."></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Transmit Data</button>
+        </form>
+        <!-- CHANGE ENDS HERE -->
+    </div>
+</section>
 
     <footer>
         <div class="container">
