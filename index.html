@@ -434,33 +434,39 @@
     </section>
 
     <section id="contact" class="container" style="padding: 4rem 0;">
-    <h2 class="section-title">Initialize Contact</h2>
-    <div class="panel contact-form">
-        <!-- CHANGE STARTS HERE -->
-        <form action="https://formsubmit.co/team@kinesisvfx.com" method="POST">
-            <!-- Add this hidden input to prevent spam -->
-            <input type="hidden" name="_captcha" value="false">
-            <!-- Add this to redirect them back to your site after sending -->
-            <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
+        <h2 class="section-title">Initialize Contact</h2>
+        <div class="panel contact-form">
             
-            <div class="input-group">
-                <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">NAME</label>
-                <!-- Add 'name' attribute so the email knows what is what -->
-                <input type="text" name="name" placeholder="John Doe">
+            <!-- SUCCESS MESSAGE (Hidden by default) -->
+            <div id="form-success-message" style="display: none; text-align: center; padding: 2rem; background: rgba(0, 243, 255, 0.1); border: 1px solid var(--accent-cyan); border-radius: 4px; margin-bottom: 1.5rem;">
+                <h3 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Transmission Successful</h3>
+                <p style="color: var(--text-main);">Thank you. We have received your data and will reply as soon as possible.</p>
             </div>
-            <div class="input-group">
-                <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">EMAIL</label>
-                <input type="email" name="email" placeholder="john@studio.com">
-            </div>
-            <div class="input-group">
-                <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">MESSAGE</label>
-                <textarea name="message" rows="5" placeholder="Project details..."></textarea>
-            </div>
-            <button type="submit" class="btn" style="width: 100%;">Transmit Data</button>
-        </form>
-        <!-- CHANGE ENDS HERE -->
-    </div>
-</section>
+
+            <!-- FORM -->
+            <form id="contact-form" action="https://formsubmit.co/team@kinesisvfx.com" method="POST">
+                <!-- Hidden inputs for FormSubmit configuration -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New Website Inquiry">
+                <!-- We removed _next so it doesn't try to redirect -->
+
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">NAME</label>
+                    <input type="text" name="name" placeholder="John Doe" required>
+                </div>
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">EMAIL</label>
+                    <input type="email" name="email" placeholder="john@studio.com" required>
+                </div>
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">MESSAGE</label>
+                    <textarea name="message" rows="5" placeholder="Project details..." required></textarea>
+                </div>
+                
+                <button type="submit" id="submit-btn" class="btn" style="width: 100%;">Transmit Data</button>
+            </form>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
@@ -558,6 +564,55 @@
         window.onload = () => {
             App.init();
         };
+
+          // --- NEW FORM HANDLING LOGIC ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+            const successMsg = document.getElementById('form-success-message');
+            const submitBtn = document.getElementById('submit-btn');
+
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Stop the page from reloading
+
+                    // Disable button to prevent double clicks
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = "Transmitting...";
+                    submitBtn.style.opacity = "0.7";
+
+                    const formData = new FormData(form);
+
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Success: Hide form, show message
+                            form.style.display = 'none';
+                            successMsg.style.display = 'block';
+                            
+                            // Optional: Scroll to the message
+                            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        } else {
+                            throw new Error('Network response was not ok.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Transmission failed. Please try again or email us directly.');
+                        // Re-enable button
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = "Transmit Data";
+                        submitBtn.style.opacity = "1";
+                    });
+                });
+            }
+        });
+    </script>
     </script>
 </body>
 </html>
