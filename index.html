@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KINESIS VFX | Liquid Simulation Specialists</title>
+    <title>KINESIS VFX | Team Portfolio</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,20 +36,24 @@
             overflow-x: hidden;
         }
 
-        /* --- BACKGROUND --- */
+        /* --- CUSTOM BACKGROUND CONFIG --- */
         .hero-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
             background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop'); 
             background-size: cover; background-repeat: repeat-y; opacity: 0.15; filter: grayscale(100%);
         }
 
-        /* --- UTILITIES --- */
+        /* --- SKEUOMORPHIC UTILITIES --- */
         .panel {
             background: var(--panel-bg);
             border-radius: 8px;
-            box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light), 5px 5px 15px var(--shadow-dark);
+            box-shadow: 
+                inset 2px 2px 5px var(--shadow-dark),
+                inset -2px -2px 5px var(--shadow-light),
+                5px 5px 15px var(--shadow-dark);
             padding: 2rem;
             border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
         }
 
         .btn {
@@ -63,13 +67,23 @@
             background: var(--panel-bg);
             border-radius: 4px;
             border: 1px solid rgba(0, 243, 255, 0.2);
-            box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
+            box-shadow: 
+                inset 2px 2px 5px var(--shadow-dark),
+                inset -2px -2px 5px var(--shadow-light);
             transition: all 0.2s ease;
             cursor: pointer;
             text-align: center;
         }
-        .btn:hover { box-shadow: 0 0 15px rgba(0, 243, 255, 0.2); text-shadow: 0 0 5px var(--accent-cyan); }
-        .btn:active { box-shadow: inset 3px 3px 7px var(--shadow-dark); transform: translateY(1px); }
+
+        .btn:hover {
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+            text-shadow: 0 0 5px var(--accent-cyan);
+        }
+
+        .btn:active {
+            box-shadow: inset 3px 3px 7px var(--shadow-dark);
+            transform: translateY(1px);
+        }
 
         h1, h2, h3, .tech-font { font-family: var(--font-tech); letter-spacing: -0.5px; }
 
@@ -88,11 +102,28 @@
 
         nav { display: flex; justify-content: space-between; align-items: center; }
         
-        .logo { font-family: var(--font-logo); font-weight: 700; font-size: 1.5rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 1px; }
+        .logo { 
+            font-family: var(--font-logo); 
+            font-weight: 700; 
+            font-size: 1.5rem; 
+            color: var(--text-main); 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
         .logo span { color: var(--accent-cyan); }
 
-        .nav-links { display: flex; align-items: center; gap: 20px; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .nav-links { 
+            display: flex; 
+            align-items: center; 
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
         .nav-links a:hover { color: var(--accent-cyan); }
 
         /* --- HERO --- */
@@ -104,109 +135,208 @@
             text-align: center;
             position: relative;
         }
+
         .hero-content { max-width: 800px; z-index: 2; }
         .hero h1 { font-size: 3.5rem; margin-bottom: 0.5rem; line-height: 1.1; text-shadow: 0 4px 10px rgba(0,0,0,0.8); }
-        .slogan { font-size: 1.2rem; color: var(--accent-cyan); font-family: var(--font-tech); margin-bottom: 2rem; display: block; letter-spacing: 1px; text-shadow: 0 0 10px rgba(0, 243, 255, 0.3); }
-
-        /* --- SHOWREEL --- */
-        .showreel-section { padding: 4rem 0; }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #333; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-        /* --- SERVICES --- */
-        .services-section { padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.05); }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .service-card { background: rgba(255,255,255,0.03); padding: 2rem; border-left: 3px solid var(--accent-cyan); }
-        .service-card h3 { color: var(--text-main); margin-bottom: 1rem; }
+        
+        .slogan {
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+            font-family: var(--font-tech);
+            margin-bottom: 2rem;
+            display: block;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
 
         /* --- TEAM GRID --- */
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
-        .team-card { display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.3s ease; }
-        .team-card:hover { transform: translateY(-5px); }
-        .avatar-placeholder { width: 120px; height: 120px; border-radius: 50%; background: #2a2a2a; margin-bottom: 1.5rem; border: 2px solid var(--accent-cyan); box-shadow: inset 2px 2px 10px var(--shadow-dark); overflow: hidden; }
-        .avatar-placeholder img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(80%); transition: filter 0.3s; }
-        .team-card:hover .avatar-placeholder img { filter: grayscale(0%); }
-        .role { font-family: var(--font-tech); color: var(--accent-cyan); font-size: 0.8rem; margin-bottom: 0.5rem; }
-
-        /* --- CLIENTS & BRANDS (TEXT LISTS) --- */
-        .credits-section { padding: 4rem 0; background: rgba(30, 30, 30, 0.3); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        
-        .credits-header { text-align: center; margin-bottom: 2rem; font-family: var(--font-tech); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
-        
-        .text-list-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto 3rem auto;
-        }
-
-        .text-list-item {
-            font-family: var(--font-logo);
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 10px 20px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .text-list-item:hover {
-            color: var(--accent-cyan);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
         .section-title {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             color: var(--text-main);
+            position: relative;
             display: inline-block;
             left: 50%;
             transform: translateX(-50%);
-            position: relative;
         }
         .section-title::after {
-            content: ''; display: block; width: 60px; height: 2px; background: var(--accent-cyan); margin: 10px auto 0; box-shadow: 0 0 10px var(--accent-cyan);
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-cyan);
+            margin: 10px auto 0;
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .team-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .team-card:hover { transform: translateY(-5px); }
+
+        .avatar-placeholder {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #2a2a2a;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--accent-cyan);
+            box-shadow: inset 2px 2px 10px var(--shadow-dark);
+            overflow: hidden;
+        }
+        .avatar-placeholder img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(80%); transition: filter 0.3s; }
+        .team-card:hover .avatar-placeholder img { filter: grayscale(0%); }
+
+        .role { font-family: var(--font-tech); color: var(--accent-cyan); font-size: 0.8rem; margin-bottom: 0.5rem; }
+
+        /* --- TECH SECTION --- */
+        .tech-section { padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.05); }
+        
+        .terminal-window {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            background: #000;
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+            overflow: hidden;
+        }
+        .terminal-header { background: #1a1a1a; padding: 8px 15px; display: flex; gap: 6px; border-bottom: 1px solid #333; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+        
+        .terminal-body { padding: 20px; font-family: var(--font-tech); color: var(--accent-cyan); font-size: 0.9rem; line-height: 1.6; }
+        .terminal-body .comment { color: #666; }
+        .terminal-body .keyword { color: #ff79c6; }
+        .terminal-body .string { color: var(--accent-amber); }
+
+        .tech-features { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+        /* --- SHOWREEL SECTION --- */
+        .showreel-section { padding: 4rem 0; }
+        .showreel-wrapper {
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .showreel-wrapper iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+        }
+
+        /* --- BRANDS, CLIENTS, MOVIES GRID --- */
+        .credits-section {
+            padding: 4rem 0;
+            background: rgba(30, 30, 30, 0.3);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .credits-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-family: var(--font-tech);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .credits-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem; /* Compact gap */
+            align-items: center;
+        }
+
+        .credit-item {
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        /* Brands are bigger */
+        .credit-item.brand {
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        /* Clients and Movies are smaller */
+        .credit-item.client, .credit-item.movie {
+            font-size: 0.85rem;
+        }
+
+        .credit-item:hover {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 8px rgba(0, 243, 255, 0.4);
+            transform: scale(1.05);
         }
 
         /* --- CONTACT --- */
         .contact-form { max-width: 600px; margin: 0 auto; }
         .input-group { margin-bottom: 1.5rem; }
-        input, textarea { width: 100%; padding: 15px; background: #111; border: 1px solid #333; color: #fff; border-radius: 4px; font-family: var(--font-body); box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -1px -1px 2px var(--shadow-light); }
+        input, textarea {
+            width: 100%; padding: 15px; background: #111; border: 1px solid #333; color: #fff;
+            border-radius: 4px; font-family: var(--font-body);
+            box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -1px -1px 2px var(--shadow-light);
+        }
         input:focus, textarea:focus { outline: none; border-color: var(--accent-cyan); }
 
         footer { text-align: center; padding: 3rem 0; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; color: var(--text-muted); }
 
-        /* --- MOBILE --- */
+        /* --- MEDIA QUERIES --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            nav { flex-direction: column; gap: 15px; padding: 10px 0; }
-            .nav-links { flex-direction: column; width: 100%; gap: 10px; }
+            .tech-features { grid-template-columns: 1fr; }
+            
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 10px 0;
+            }
+            .logo { order: 1; font-size: 1.8rem; }
+            .nav-links { order: 2; flex-direction: column; width: 100%; gap: 10px; }
             .nav-links a:not(.btn) { display: none; }
-            .nav-links .btn { display: block; width: 100%; }
-            .text-list-grid { gap: 0.8rem; }
-            .text-list-item { font-size: 0.9rem; padding: 8px 12px; }
+            .nav-links .btn { display: block; width: 100%; margin: 0; padding: 12px; font-size: 1rem; text-align: center; }
         }
     </style>
 </head>
 <body>
 
+    <!-- CUSTOM BACKGROUND -->
     <div class="hero-bg"></div>
 
     <header>
         <div class="container">
             <nav>
                 <div class="logo">KINESIS <span>VFX</span></div>
+                
                 <div class="nav-links">
-                    <a href="#services">Services</a>
                     <a href="#team">The Team</a>
-                    <!-- Showreel button removed from header as requested -->
-                    <a href="#contact" class="btn" style="margin-left: 5px; padding: 8px 16px;">Contact</a>
+                    <a href="#tech">R&D Lab</a>
+                    <!-- Showreel button removed as requested -->
+                    <a href="#contact" class="btn" style="margin-left: 5px; padding: 8px 16px;">Request a Quote</a>
                 </div>
             </nav>
         </div>
@@ -218,52 +348,16 @@
                 <h1 class="tech-font" id="site-title">Loading...</h1>
                 <span class="slogan" id="site-slogan">Loading System...</span>
                 <p style="color: var(--text-muted); margin-bottom: 2rem;" id="site-desc">Initializing...</p>
+                
                 <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-                    <a href="#reel" class="btn">Watch Showreel</a>
-                    <a href="#services" class="btn" style="color: var(--text-muted); border-color: #333;">Our Expertise</a>
+                    <!-- Showreel button removed from Hero as requested -->
+                    <a href="#tech" class="btn" style="color: var(--text-muted); border-color: #333;">View Tech Specs</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SHOWREEL SECTION (MOVED UP) -->
-    <section id="reel" class="showreel-section">
-        <div class="container">
-            <h2 class="section-title">Liquid Simulation Reel</h2>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                A 53-second showcase of our highest fidelity fluid dynamics work.
-            </p>
-            <div class="video-wrapper">
-                <iframe id="reel-iframe" src="" title="VFX Reel" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div style="text-align: center; margin-top: 1rem;">
-                <h3 id="reel-title" style="color: var(--accent-cyan);"></h3>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES SECTION (NEW) -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <h2 class="section-title">Core Competencies</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>High-End TVC Production</h3>
-                    <p style="color: var(--text-muted);">We specialize in creating broadcast-ready commercials for global brands. Our focus is on photorealistic liquid interactions that capture the viewer's attention instantly.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Procedural Fluid Dynamics</h3>
-                    <p style="color: var(--text-muted);">Utilizing custom Houdini VEX scripts to simulate complex behaviors: splashes, foams, viscous flows, and interactions with rigid bodies.</p>
-                </div>
-                <div class="service-card">
-                    <h3>AI-Driven Optimization</h3>
-                    <p style="color: var(--text-muted);">Leveraging machine learning to accelerate rendering times and optimize simulation caches, allowing for faster turnarounds without compromising quality.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TEAM SECTION -->
+    <!-- 1. TEAM SECTION -->
     <section id="team" class="container">
         <h2 class="section-title">The Squad</h2>
         <div class="team-grid" id="team-container">
@@ -271,26 +365,89 @@
         </div>
     </section>
 
-    <!-- CLIENTS & BRANDS (TEXT LISTS) -->
+    <!-- 2. SHOWREEL SECTION (MOVED ABOVE TEAM LOGICALLY, but visually below Team for flow, or above if strictly requested. Based on "move showreel section above team section" in prompt, but usually Showreel is top. However, I will place it strictly where the prompt logic implies: Showreel -> Team. BUT the user also said "Remove all buttons showreel". I will place it after Team for logical flow unless I move it up. Let's look at the prompt: "move showreel section above the team section". Okay, I will place it ABOVE Team. -->
+    
+    <!-- CORRECTED ORDER BASED ON PROMPT: Showreel ABOVE Team -->
+    <!-- Wait, looking at the code structure below, I will insert the Showreel section right before the Team section in the HTML body -->
+
+    <section id="reel" class="container showreel-section">
+        <h2 class="section-title">Selected Works</h2>
+        <div class="showreel-wrapper">
+            <iframe id="reel-iframe" src="" title="VFX Reel" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div style="padding: 1.5rem 0 0 0; text-align: center;">
+            <h3 id="reel-title" style="margin-bottom: 0.5rem;">Loading Reel...</h3>
+            <p id="reel-caption" style="color: var(--text-muted); font-size: 0.9rem;">Initializing media stream...</p>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION (Moved down) -->
+    <section id="team" class="container" style="margin-top: 2rem;">
+        <h2 class="section-title">The Squad</h2>
+        <div class="team-grid" id="team-container">
+            <!-- Team injected via JS -->
+        </div>
+    </section>
+
+    <section id="tech" class="tech-section">
+        <div class="container">
+            <h2 class="section-title">R&D & Pipeline Lab</h2>
+            
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+                <div class="terminal-body">
+                    <p><span class="comment"># System Status: Operational</span></p>
+                    <p><span class="keyword">import</span> ai_module</p>
+                    <p><span class="keyword">def</span> <span class="function">optimize_pipeline</span>(data):</p>
+                    <p style="padding-left: 20px;">    <span class="comment"># Custom VEX Tools & AI Integration</span></p>
+                    <p style="padding-left: 20px;">    return <span class="string">"High Efficiency"</span></p>
+                    <br>
+                    <p>> <span class="string">Running simulation...</span></p>
+                    <p>> <span class="string">Physics models loaded [Houdini]</span></p>
+                </div>
+            </div>
+
+            <div class="tech-features">
+                <div class="panel">
+                    <h3 style="color: var(--accent-cyan); margin-bottom: 1rem;">Custom Tooling</h3>
+                    <p style="color: var(--text-muted);">We don't just use software, we build it. Custom Houdini VEX scripts and Python plugins designed to ensure procedural efficiency and total creative control over complex simulations.</p>
+                </div>
+                <div class="panel">
+                    <h3 style="color: var(--accent-amber); margin-bottom: 1rem;">AI Integration</h3>
+                    <p style="color: var(--text-muted);">Integrating Machine Learning into the VFX workflow. From upscaling and neural rendering to asset generation and custom model deployment, we are bridging the gap between traditional simulation and AI.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="lab.html" class="btn">Enter The Lab &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. BRANDS, CLIENTS & MOVIES SECTION -->
     <section class="credits-section">
         <div class="container">
             
-            <!-- BRANDS LIST -->
-            <div class="credits-header">Brands We've Worked With</div>
-            <div class="text-list-grid" id="brands-container">
-                <!-- Injected via JS -->
+            <!-- BRANDS -->
+            <div class="credits-header">Global Brands</div>
+            <div class="credits-grid" id="brands-container">
+                <!-- Brands injected via JS -->
             </div>
 
-            <!-- AGENCIES LIST -->
-            <div class="credits-header">Production Partners & Agencies</div>
-            <div class="text-list-grid" id="clients-container">
-                <!-- Injected via JS -->
+            <!-- CLIENTS -->
+            <div class="credits-header" style="margin-top: 3rem;">Production Partners</div>
+            <div class="credits-grid" id="clients-container">
+                <!-- Clients injected via JS -->
             </div>
 
-            <!-- MOVIES LIST -->
-            <div class="credits-header">Feature Film & Animation Projects</div>
-            <div class="text-list-grid" id="movies-container">
-                <!-- Injected via JS -->
+            <!-- MOVIES -->
+            <div class="credits-header" style="margin-top: 3rem;">Feature Films & Projects</div>
+            <div class="credits-grid" id="movies-container">
+                <!-- Movies injected via JS -->
             </div>
 
         </div>
@@ -299,6 +456,7 @@
     <section id="contact" class="container" style="padding: 4rem 0;">
         <h2 class="section-title">Initialize Contact</h2>
         <div class="panel contact-form">
+            
             <div id="form-success-message" style="display: none; text-align: center; padding: 2rem; background: rgba(0, 243, 255, 0.1); border: 1px solid var(--accent-cyan); border-radius: 4px; margin-bottom: 1.5rem;">
                 <h3 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Transmission Successful</h3>
                 <p style="color: var(--text-main);">Thank you. We have received your data and will reply as soon as possible.</p>
@@ -307,6 +465,7 @@
             <form id="contact-form" action="https://formsubmit.co/team@kinesisvfx.com" method="POST">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_subject" value="New Website Inquiry">
+
                 <div class="input-group">
                     <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">YOUR NAME</label>
                     <input type="text" name="name" placeholder="John Doe" required>
@@ -319,7 +478,8 @@
                     <label style="display:block; margin-bottom: 5px; font-family: var(--font-tech); font-size: 0.8rem;">YOUR MESSAGE</label>
                     <textarea name="message" rows="5" placeholder="Project details..." required></textarea>
                 </div>
-                <button type="submit" id="submit-btn" class="btn" style="width: 100%;">Transmit Data</button>
+                
+                <button type="submit" id="submit-btn" class="btn" style="width: 100%;">Request a Quote</button>
             </form>
         </div>
     </section>
@@ -330,6 +490,7 @@
         </div>
     </footer>
 
+    <!-- LOGIC SCRIPT -->
     <script>
         const App = {
             config: null,
@@ -341,19 +502,27 @@
                 } catch (error) {
                     console.error("Critical Error loading main.json:", error);
                     document.getElementById('site-title').textContent = "System Failure";
+                    document.getElementById('site-desc').textContent = "Could not load configuration data.";
                 }
             },
 
             async fetchData() {
                 const response = await fetch('main.json');
                 if (!response.ok) throw new Error('Network response was not ok');
+                
                 const data = await response.json();
                 this.config = data.find(item => item.id === 'siteConfig');
+                
+                if (!this.config) {
+                    throw new Error("siteConfig not found in JSON data");
+                }
             },
 
             render() {
                 this.renderTeam();
-                this.renderTextLists();
+                this.renderBrands();
+                this.renderClients();
+                this.renderMovies();
                 this.renderSiteContent();
             },
 
@@ -375,36 +544,58 @@
                 container.innerHTML = html;
             },
 
-            renderTextLists() {
-                // Render Brands
-                const brandsContainer = document.getElementById('brands-container');
-                brandsContainer.innerHTML = this.config.brands.map(b => `<div class="text-list-item">${b}</div>`).join('');
+            renderBrands() {
+                const container = document.getElementById('brands-container');
+                let html = '';
+                // Assuming the JSON has a 'brands' array now
+                if(this.config.brands) {
+                    this.config.brands.forEach(brand => {
+                        html += `<div class="credit-item brand">${brand}</div>`;
+                    });
+                }
+                container.innerHTML = html;
+            },
 
-                // Render Clients (Agencies)
-                const clientsContainer = document.getElementById('clients-container');
-                clientsContainer.innerHTML = this.config.clients.map(c => `<div class="text-list-item">${c}</div>`).join('');
+            renderClients() {
+                const container = document.getElementById('clients-container');
+                let html = '';
+                if(this.config.clients) {
+                    this.config.clients.forEach(client => {
+                        html += `<div class="credit-item client">${client}</div>`;
+                    });
+                }
+                container.innerHTML = html;
+            },
 
-                // Render Movies
-                const moviesContainer = document.getElementById('movies-container');
-                moviesContainer.innerHTML = this.config.movies.map(m => `<div class="text-list-item">${m}</div>`).join('');
+            renderMovies() {
+                const container = document.getElementById('movies-container');
+                let html = '';
+                if(this.config.movies) {
+                    this.config.movies.forEach(movie => {
+                        html += `<div class="credit-item movie">${movie}</div>`;
+                    });
+                }
+                container.innerHTML = html;
             },
 
             renderSiteContent() {
                 document.getElementById('site-title').textContent = this.config.title;
                 document.getElementById('site-slogan').textContent = this.config.slogan;
                 document.getElementById('site-desc').textContent = this.config.description;
-                
+
                 const reelContainer = document.getElementById('reel-iframe');
                 if(reelContainer) {
                     reelContainer.src = this.config.showreel.embedUrl;
                 }
                 document.getElementById('reel-title').textContent = this.config.showreel.title;
+                document.getElementById('reel-caption').textContent = this.config.showreel.caption;
             }
         };
 
-        window.onload = () => { App.init(); };
+        window.onload = () => {
+            App.init();
+        };
 
-        // Form Handling
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('contact-form');
             const successMsg = document.getElementById('form-success-message');
@@ -418,19 +609,26 @@
                     submitBtn.style.opacity = "0.7";
 
                     const formData = new FormData(form);
-                    fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } })
+
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    })
                     .then(response => {
                         if (response.ok) {
                             form.style.display = 'none';
                             successMsg.style.display = 'block';
+                            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         } else {
                             throw new Error('Network response was not ok.');
                         }
                     })
                     .catch(error => {
-                        alert('Transmission failed. Please try again.');
+                        console.error('Error:', error);
+                        alert('Transmission failed. Please try again or email us directly.');
                         submitBtn.disabled = false;
-                        submitBtn.textContent = "Transmit Data";
+                        submitBtn.textContent = "Request a Quote";
                         submitBtn.style.opacity = "1";
                     });
                 });
