@@ -30,14 +30,6 @@
       {
         "title": "Pyro & Smoke",
         "desc": "Fire, explosions, smoke plumes, and dust. Volumetric atmospheres for dramatic impact."
-      },
-      {
-        "title": "AI Pipeline Integration",
-        "desc": "We use internal AI tools to speed up rendering and upscaling, ensuring faster delivery without compromising quality."
-      },
-      {
-        "title": "Custom Houdini Tools",
-        "desc": "We build HDAs to automate repetitive tasks. Available as part of a project or sold as standalone tooling."
       }
     ],
     "team": [
