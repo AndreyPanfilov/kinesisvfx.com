@@ -18,6 +18,28 @@
     "movies": [
       "Dracula Untold", "Despicable Me 3", "Secret life of pets", "Nezha 2", "Star Wars Rebels", "Monkey King: The Heavenly Mission", "Ant-Man", "Transformers", "Nguoi La Oi", "Noryang", "Arthdal Chronicles"
     ],
+    "services": [
+      {
+        "title": "Liquid & Fluid Simulation",
+        "desc": "Our specialty. Realistic honey, water, milk, oil, or stylized fluids created with high-fidelity physics."
+      },
+      {
+        "title": "Rigid Body Destruction",
+        "desc": "Cracking, crumbling, and high-impact effects. Realistic debris and structural failures."
+      },
+      {
+        "title": "Pyro & Smoke",
+        "desc": "Fire, explosions, smoke plumes, and dust. Volumetric atmospheres for dramatic impact."
+      },
+      {
+        "title": "AI Pipeline Integration",
+        "desc": "We use internal AI tools to speed up rendering and upscaling, ensuring faster delivery without compromising quality."
+      },
+      {
+        "title": "Custom Houdini Tools",
+        "desc": "We build HDAs to automate repetitive tasks. Available as part of a project or sold as standalone tooling."
+      }
+    ],
     "team": [
       {
         "name": "ANDREY PANFILOV",
