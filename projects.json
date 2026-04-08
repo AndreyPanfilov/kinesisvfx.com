@@ -9,7 +9,8 @@
     "tags": ["Explosion", "RBD", "Particles", "Smoke"],
     "stats": {
       "role": "VFX, Supervisor, TD",
-      "software": "Nuke, Houdini, Redshift"
+      "software": "Nuke, Houdini, Redshift",
+      "status": "Accomplished"
     },
     "content": [
       {
@@ -29,7 +30,6 @@
     "stats": {
       "role": "FX TD",
       "software": "Houdini 19.5",
-      "timeSaved": "~30% Render Time",
       "status": "Beta"
     },
     "content": [
