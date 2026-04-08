@@ -1,39 +1,20 @@
 [
   {
-    "id": "neural-roto",
-    "title": "Neural Roto Assistant",
-    "slogan": "Automating the impossible",
-    "description": "A Python script integrated into Nuke that automates rotoscoping of complex hair using PyTorch models.",
+    "id": "Beyond Fluids",
+    "title": "Beyond Fluids: Showcase",
+    "slogan": "",
+    "description": "Rigid Body Destruction, Fire, Explosions, Smoke, Particles, and other effects",
     "videoUrl": "", 
-    "heroImage": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000",
-    "tags": ["Python", "Nuke", "AI"],
+    "heroImage": "./assets/rnd/thumbnail_particles_expl_01.jpg",
+    "tags": ["Explosion", "RBD", "Particles", "Smoke"],
     "stats": {
-      "role": "Lead TD",
-      "software": "Nuke 13.2v4",
-      "timeSaved": "~40 hrs/shot",
-      "status": "Production Ready"
+      "role": "VFX, Supervisor, TD",
+      "software": "Nuke, Houdini, Redshift"
     },
     "content": [
       {
-        "type": "text",
-        "text": "The Neural Roto Assistant was developed to solve the bottleneck of manual rotoscoping in high-volume VFX shots. By leveraging a custom-trained PyTorch model, the tool can predict hair edges with 95% accuracy."
-      },
-      {
-        "type": "image",
-        "src": "https://via.placeholder.com/800x400/111/333?text=Node+Graph+Overview",
-        "caption": "The custom node graph implementation in Nuke."
-      },
-      {
-        "type": "text",
-        "text": "The pipeline integrates directly into the Nuke interface via a custom Python shelf tool. It utilizes OpenCV for pre-processing and passes masks directly to the node graph, allowing artists to refine the results with minimal effort."
-      },
-      {
         "type": "video",
-        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
-      },
-      {
-        "type": "text",
-        "text": "Performance benchmarks show a 60% reduction in manual labor time per shot. The model was trained on over 5,000 frames of complex hair data."
+        "url": "https://www.youtube.com/embed/_guWmuuiUu4?si=kztBqlTBs00n5m5i"
       }
     ]
   },
