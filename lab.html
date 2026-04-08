@@ -182,7 +182,7 @@
     </footer>
 
     <script>
-        fetch('projects.json')
+        fetch(`projects.json?t=${Date.now()}`)
             .then(response => response.json())
             .then(projects => {
                 const grid = document.getElementById('project-grid');

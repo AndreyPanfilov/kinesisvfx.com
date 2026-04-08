@@ -314,7 +314,7 @@
         if (!projectId) {
             document.body.innerHTML = '<div class="container" style="padding-top:100px; text-align:center;"><h1>404: Project Not Found</h1><a href="lab.html" class="btn">Return to Lab</a></div>';
         } else {
-            fetch('projects.json')
+            fetch(`projects.json?t=${Date.now()}`)
                 .then(response => response.json())
                 .then(projects => {
                     const project = projects.find(p => p.id === projectId);
